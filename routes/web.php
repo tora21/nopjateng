@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('admin.main');
-});
+// Route::get('/', function () {
+//     return view('admin.main');
+// });
+
+//  dashboard ADMIN
+Route::get('/', [dashboardController::class, 'index'])->name('index');
+
+// admin
+Route::get('/quotes', [adminController::class, 'quotes'])->name('quotes');
